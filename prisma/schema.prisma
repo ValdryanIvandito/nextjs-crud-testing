@@ -9,9 +9,21 @@ generator client {
 
 model cancellation_history {
   id         String @id @default(auto()) @map("_id") @db.ObjectId
+  bookingid  String @unique
   bookingref String @unique
   startsAt   String
   endsAt     String
   firstName  String
   email      String
+}
+
+model reschedule_history {
+  id            String @id @default(auto()) @map("_id") @db.ObjectId
+  bookingid     String @unique
+  bookingref    String @unique
+  startsAt      String
+  endsAt        String
+  rescheduledAt String
+  firstName     String
+  email         String
 }

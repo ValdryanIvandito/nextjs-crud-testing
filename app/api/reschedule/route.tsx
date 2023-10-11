@@ -8,12 +8,13 @@ export async function POST(request: NextRequest) {
   const body = await request.json();
 
   // Create data
-  const newData = await prisma.cancellation_history.create({
+  const newData = await prisma.reschedule_history.create({
     data: {
       bookingid: body.bookingid,
       bookingref: body.bookingref,
       startsAt: body.startsAt,
       endsAt: body.endsAt,
+      rescheduledAt: body.rescheduledAt,
       firstName: body.firstName,
       email: body.email,
     },
